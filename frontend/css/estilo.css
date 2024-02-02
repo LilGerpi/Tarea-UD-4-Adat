@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    color: #333;
+}
+
+#productos {
+    margin-top: 20px;
+}
+
+.producto {
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#btnAgregar {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+/* Estilos para el formulario modal */
+#modalFormulario {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 1000; /* Asegura que el modal esté por encima de otros elementos */
+    display: none; /* Oculto por defecto */
+}
+
+#modalFormulario div {
+    margin-bottom: 10px;
+}
+
+#modalFormulario label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#modalFormulario input[type="text"],
+#modalFormulario input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#modalFormulario button[type="submit"] {
+    background-color: #28a745;
+}
+
+#modalFormulario button[type="button"] {
+    background-color: #6c757d;
+}
+
