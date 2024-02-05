@@ -24,13 +24,13 @@ public class ProductoController {
     private ProductoService productoService;
 
     // Crear un nuevo producto
-    @PostMapping("/")
+    @PostMapping("/crear")
     public Producto crearProducto(@RequestBody Producto producto) {
         return productoService.guardarProducto(producto);
     }
 
     // Obtener todos los productos
-    @GetMapping("/")
+    @GetMapping("/listar")
     public List<Producto> listarProductos() {
         return productoService.obtenerTodosProductos();
     }
