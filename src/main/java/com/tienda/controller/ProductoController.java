@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tienda.modelo.Producto;
+import com.tienda.modelo.productos;
 import com.tienda.service.ProductoService;
 
 @RestController
 @RequestMapping("/api/productos")
-@CrossOrigin(origins = "http://localhost:8080") // Habilitar CORS para el puerto 8080
+@CrossOrigin(origins = "*") // Habilitar CORS para el puerto 8080
 public class ProductoController {
 
 	@Autowired
@@ -27,32 +27,32 @@ public class ProductoController {
 
 	// Crear un nuevo producto
 	@PostMapping("/crear")
-	public Producto crearProducto(@RequestBody Producto producto) {
+	public productos crearProducto(@RequestBody productos producto) {
 		return productoService.guardarProducto(producto);
 	}
 
 	// Obtener todos los productos
 	@GetMapping("/listar")
-	public List<Producto> listarProductos() {
+	public List<productos> listarProductos() {
 		return productoService.obtenerTodosProductos();
 	}
 
 	// Obtener un producto por su ID
 	@GetMapping("/{id}")
-	public ResponseEntity<Producto> obtenerProductoPorId(@PathVariable Long id) {
+	public ResponseEntity<productos> obtenerProductoPorId(@PathVariable Long id) {
 		return productoService.obtenerProductoPorId(id).map(producto -> ResponseEntity.ok().body(producto))
 				.orElseGet(() -> ResponseEntity.notFound().build());
 	}
 
 	// Actualizar un producto
 	@PutMapping("/{id}")
-	public ResponseEntity<Producto> actualizarProducto(@PathVariable Long id, @RequestBody Producto detallesProducto) {
+	public ResponseEntity<productos> actualizarProducto(@PathVariable Long id, @RequestBody productos detallesProducto) {
 		return productoService.obtenerProductoPorId(id).map(productoExistente -> {
 			productoExistente.setNombre(detallesProducto.getNombre());
 			productoExistente.setPrecio(detallesProducto.getPrecio());
 			productoExistente.setCantidad(detallesProducto.getCantidad());
 			productoExistente.setCategoria(detallesProducto.getCategoria());
-			Producto productoActualizado = productoService.guardarProducto(productoExistente);
+			productos productoActualizado = productoService.guardarProducto(productoExistente);
 			return ResponseEntity.ok().body(productoActualizado);
 		}).orElseGet(() -> ResponseEntity.notFound().build());
 	}

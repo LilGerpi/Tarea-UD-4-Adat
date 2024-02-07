@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.tienda.modelo.Producto;
+import com.tienda.modelo.productos;
 import com.tienda.repository.ProductoRepository;
 
 @Service
@@ -16,17 +16,17 @@ public class ProductoService {
     private ProductoRepository productoRepository;
 
     // Guardar o actualizar un producto
-    public Producto guardarProducto(Producto producto) {
+    public productos guardarProducto(productos producto) {
         return productoRepository.save(producto);
     }
 
     // Obtener todos los productos
-    public List<Producto> obtenerTodosProductos() {
+    public List<productos> obtenerTodosProductos() {
         return productoRepository.findAll();
     }
 
     // Obtener un producto por su ID
-    public Optional<Producto> obtenerProductoPorId(Long id) {
+    public Optional<productos> obtenerProductoPorId(Long id) {
         return productoRepository.findById(id);
     }
 
